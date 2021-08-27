@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+	<section class="mainStatsBox">
+		<h1>GET Short URL</h1>
+		<div class="container-fluid">
+			  <div class="tab-pane fade show active" id="linkedIn" role="tabpanel" aria-labelledby="linkedIn-tab">
+				<div class="dtlOfSetting linkedInBox">
+					<h3>URL Shortner</h3>
+					   <form method="post">
+						   {% csrf_token %}
+						   <div class="form-group mt-4">
+							<p style="color:rgb(0, 13, 128)">Enter your URL</p>
+							   <input type="text" name ='url' class="form-control" placeholder="your url" required />
+						   </div>
+						   <div class="form-group mt-4 pwBox">
+							<p style="color:green">Your converted URL</p>
+							<input type="text" name = "text" id="shorturl" class="form-control" placeholder="{{request.session.shorturl}}" value = "{{request.session.shorturl}}" readonly/>
+							</div>
+						<div class="form-group mt-4">
+							<button type="submit" class="btn button editCred">Get Short URL</button>
+						</div>
+						<a href=""><p>Terms and Conditions</p></a>
+					</form>
+			  </div>
+			  </div>
+			</div>
+	</section>
+{% endblock content %}

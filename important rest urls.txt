@@ -1,0 +1,75 @@
+->url = 'accounts/ google/ login/'
+    {% provider_login_url 'google' %}
+
+API's
+
+1) 
+	user data(request method accepted - 'GET')
+	user should loggedin otherwise it will through error.
+	endpoint - apicall/userdata/
+		response on success
+		{
+		"id":"106339649180431417349",
+		"email":"akashrathor096@gmail.com",
+		"verified_email":true,
+		"name":"Akash Rathor",
+		"given_name":"Akash",
+		"family_name":"Rathor",
+		"picture":"https://lh3.googleusercontent.com/a-/AOh14GjVHuH3vCYYXvji-9uxuOgp9IYohcGzuJUs1JQO5w=s96-c",
+		"locale":"en"
+		}
+
+2) 
+	Redeemed data(tranfered from wallet to bank)
+	(request method accepted - 'GET')
+	user should loggedin otherwise it will through error.
+	endpoint - apicall/redeemhistory/
+		response on success
+		{
+		"ever_redeemed":true,
+		"redeemed":[50,49,56]
+		}
+
+3)
+	(request method accepted - 'GET','POST')
+	transectionHistory data(earned by user)
+	user should loggedin otherwise it will through error.
+	endpoint - apicall/transectionHistory/
+		response on success
+		{
+			"transectionHistory":true,
+			"transections":[10,4,5],
+			"locations":[["sdsfsd","sfsdf"],["asdsa","asfad"],["safas","asfd"]]
+		}
+		location are latitute and longitute
+
+
+4) update balance
+	(request method accepted - 'GET','POST')
+	endpoint - apicall/balance
+		for 'POST'
+			body = 
+				{
+					'amount':50,
+					'added or deducted':deducted,
+					'latitute':'-123.243324',
+					'longitute':'435.12324',
+				}
+		
+5) Request money:
+	(request method accepted - 'POST')
+	endpoint - apicall/requestmoney/
+	body = 
+		{
+			'money':101,
+			'latitute':'-123.243324',
+			'longitute':'435.12324',
+		}
+	
+6) update payment UPI id
+	(request method accepted - 'POST')
+	endpoint - apicall/updatePaymentMethod/
+	body=
+		{
+		'upiid':'akashrathor@ocicici',
+		}
